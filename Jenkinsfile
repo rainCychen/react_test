@@ -10,6 +10,12 @@ pipeline {
                 }
             }
         }
+        stage('deploy') {
+            steps {
+                sshPublisher(publishers: [sshPublisherDesc(configName: "${server_name}", transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/usr/local/nginx/html/jenkinsTest', remoteDirectorySDF: false, removePrefix: 'dist', sourceFiles: 'build/**')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+                
+        }
     }
     
 }
