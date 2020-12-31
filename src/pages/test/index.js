@@ -20,6 +20,7 @@ export default class Test extends Component {
             id="addInput"
             className="input"
             value={this.state.inputValue}
+            placeholder="请填写服务类目"
             onChange={this.onInputChange.bind(this)}
             ref={(input) => {
               this.input = input;
